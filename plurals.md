@@ -5,6 +5,7 @@ each noun. Nevertheless, the forms are not completely irregular as they roughly
 fall into categories, according to their gender:
 
 #### Masculine
+
 | English | Singular         | Plural           | Rule           |
 |---------|------------------|------------------|----------------|
 | carrot  | morco**v**       | morco**vi**      | cons. + i      |
@@ -14,6 +15,7 @@ fall into categories, according to their gender:
 | horse   | ca**l**          | ca**i**          | vowel + l → i  |
 
 #### Feminine
+
 | English | Singular         | Plural              | Rule           |
 |---------|------------------|---------------------|----------------|
 | salad   | salat**ă**       | salat**e**          | ă → e          |
@@ -25,6 +27,13 @@ fall into categories, according to their gender:
 | kitchen | bucătăr**ie**    | bucătăr**ii**       | ie → ii        |
 
 #### Neuter
+
+*Note:* Although Romanian has three genders, the neuter gender usually acts
+like a masculine noun when being singular and feminine one when being plural.
+If you see rules or tables where neuter is missing (which is probably most of
+them), treat neuter nouns as either masculine or feminine depending on their
+count.
+
 | English | Singular         | Plural              | Rule           |
 |---------|------------------|---------------------|----------------|
 | dessert | deser**t**       | deser**turi**       | cons. + uri    |
