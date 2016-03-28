@@ -45,8 +45,8 @@ for a more exhaustive explanation.
 |:-------:|:-----------:|-----------------|
 | C       | k           | **c**ar         |
 | Ce / Ci | tʃ          | **ch**alk       |
-| Ge / Gi | ɨ           | **g**eneral     |
-| J       | dʒ          | expo**s**ure    |
+| Ge / Gi | dʒ          | **g**eneral     |
+| J       | ʒ           | expo**s**ure    |
 | Ș       | ʃ           | **sh**arp       |
 | Ț       | ts          | pi**zz**a       |
 
