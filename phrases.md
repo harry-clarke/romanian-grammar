@@ -29,3 +29,15 @@ Also, some ways of greeting can be use when meeting **and** departing.
 | Bye     | Pa       |
 | Bye     | Salut    |
 | Bye     | Ciao     |
+
+### Polite pronouns
+
+Much like in the case of the French language, Romanian has a special politeness pronoun.
+If you want to be explicitly polite, you use the following forms.
+
+| English | Romanian | Polite        |
+|---------|----------|---------------|
+| you     | tu/voi   | dumneavoastră |
+| he      | el       | dumnealui     |
+| she     | ea       | dumneaei      |
+| they    | ei/ele   | dumnealor     |
