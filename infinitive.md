@@ -28,7 +28,7 @@ The four groups are identified by the way verbs end when in the infinitive mood.
 #### Irregular verbs
 
 Irregular verbs have different conjugations that don't fall in the aforementioned
-rules, but they are usually learned on the fly as they not many.
+rules, but they are usually learned on the fly as they are not many.
 
 A few examples are *a fi* (to be), *a avea* (to have), *a vrea* (to want), *a da*
 (to give), *a lua* (to take), *a ști* (to know), *a mânca* (to eat), *a face* (to

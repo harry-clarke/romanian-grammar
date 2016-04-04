@@ -18,7 +18,7 @@ example, will get the name *turmă* which is similar to the word *herd*.
 
 * turmă de oi (flock of sheep)
 * turmă de elefanți (elephant herd)
-* turmț de vaci (cattle herd)
+* turmă de vaci (cattle herd)
 
 For birds one would usually use the word *stol*.
 
