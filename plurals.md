@@ -51,3 +51,17 @@ nouns form plural with the use of compound nouns:
 |-----------------|---------------------|---------------------|
 | garlic clove    | cățel de usturoi    | căței de usturoi    |
 | pair of glasses | pereche de ochelari | perechi de ochelari |
+
+### i/ii/iii
+
+As mentioned in a previous lesson, Romanian is an inflected language. Each word
+has its own stem that is inflected in order to convey meaning, and one such
+examples is the plural.
+
+Because some nouns' stems end with an *i*, you can have plurals that end with
+*ii* or with *iii* if articulated.
+
+| English | Singular | Plural  | Plural + article |
+|---------|----------|---------|------------------|
+| lion    | **le**u  | le**i** | le**ii**         |
+| son     | **fi**u  | fi**i** | fi**ii**         |
