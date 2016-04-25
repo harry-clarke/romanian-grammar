@@ -27,9 +27,9 @@ For birds one would usually use the word *stol*.
 
 Some groups, though, have custom names.
 
-| English                | Romanian               |
-|------------------------|------------------------|
-| pack of wolves/dogs | haită de lupi  |
-| beaver colony    | colonie de castori  |
-| bee hive/swarm | stup/roi de albine |
-| locust swarm | nor de lăcuste |
+| English             | Romanian           |
+|---------------------|--------------------|
+| pack of wolves/dogs | haită de lupi      |
+| beaver colony       | colonie de castori |
+| bee hive/swarm      | stup/roi de albine |
+| locust swarm        | nor de lăcuste     |
