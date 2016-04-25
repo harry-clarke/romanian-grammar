@@ -64,7 +64,7 @@ is similar to *'s* you would add in English to signal possession.
 * Nu găsesc portofelul **bunicului**. (I can't find **grandfather's** wallet.)
 
 In the example above, we are keeping the owner, **bunicului**,
-instead of using a pronoun, **lui**.
+instead of using a pronoun-originating adjective, **lui**.
 
 *The genitive-dative form is better explained in a further lesson.
 The introduction here is only meant to give you a bigger picture
