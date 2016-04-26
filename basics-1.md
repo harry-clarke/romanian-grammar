@@ -52,13 +52,13 @@ for a more exhaustive explanation.
 
 ### Â or Î
 
-Although Â and Î sound precisely the same, Romanian use of both letters stems
-from etymology. So, by using a simple rule to swap between the two, Romanian
-has been able to retain some similarity with Latin, where most etymons use
-A instead of Â and I instead of Î.
+Although *Â* and *Î* sound precisely the same, Romanian use of both letters
+stems from etymology. So, by using a simple rule to swap between the two,
+Romanian has been able to retain some similarity with Latin, where most
+etymons use *A* instead of *Â* and *I* instead of *Î*.
 
-The rule between them is that Î is only used at the start and end of a word.
-In the middle, you would use Â.
+The rule between them is that *Î* is only used at the start and end of a word.
+In the middle, you would use *Â*.
 
 * **î**ncepe (to begin) - start
 * hotăr**î** (to decide) - end
