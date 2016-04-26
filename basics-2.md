@@ -26,11 +26,11 @@ in English.
 
 Conjugation table for *a avea* (to have).
 
-| English                | Romanian      |
-|------------------------|---------------|
-| I have                 | Eu **am**     |
-| You have               | Tu **ai**     |       
-| He/She has             | El/Ea **are** |
-| We have                | Noi **avem**  |
-| You have (pl.)         | Voi **aveţi** |
-| They have (masc./fem.) | Ei/Ele **au** |
+| English                  | Romanian        |
+|--------------------------|-----------------|
+| I have                   | eu **am**       |
+| you have                 | tu **ai**       |       
+| he / she has             | el / ea **are** |
+| we have                  | noi **avem**    |
+| you have (pl.)           | voi **aveţi**   |
+| they have (masc. / fem.) | ei / ele **au** |
