@@ -80,14 +80,14 @@ for *it*. When having a subject that you would normally use *it* for, you
 can either use demonstrative pronouns (*acesta* (this masc.), *aceea* (that fem.)
 etc.), or simply refrain from using a pronoun.
 
-| English           | Romanian    |
-|-------------------|-------------|
-| I                 | Eu          |
-| You               | Tu          |       
-| He/She/It         | El/Ea/*N/A* |
-| We                | Noi         |
-| You (pl.)         | Voi         |
-| They (masc./fem.) | Ei/Ele      |
+| English             | Romanian        |
+|---------------------|-----------------|
+| I                   | eu              |
+| you                 | tu              |       
+| he / she / it       | el / ea / *N/A* |
+| we                  | noi             |
+| you (pl.)           | voi             |
+| they (masc. / fem.) | ei / ele        |
 
 ### To be
 
@@ -96,11 +96,11 @@ representing the action it is performing. This agreement is called **conjugation
 and comes with its own set of rules and exceptions. Below you will find the
 conjugation table for *a fi* (to be).
 
-| English               | Romanian        |
-|-----------------------|-----------------|
-| I am                  | Eu **sunt**     |
-| You are               | Tu **eşti**     |       
-| He/She is             | El/Ea **este**  |
-| We are                | Noi **suntem**  |
-| You are (pl.)         | Voi **sunteţi** |
-| They are (masc./fem.) | Ei/Ele **sunt** |
+| English                 | Romanian          |
+|-------------------------|-------------------|
+| I am                    | eu **sunt**       |
+| you are                 | tu **eşti**       |       
+| he / she is             | el / ea **este**  |
+| we are                  | noi **suntem**    |
+| you are (pl.)           | voi **sunteţi**   |
+| they are (masc. / fem.) | ei / ele **sunt** |
