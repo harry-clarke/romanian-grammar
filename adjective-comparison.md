@@ -23,10 +23,10 @@ pronoun has to agree with noun that the adjective describes.
 | singular | cel       | cea      |
 | plural   | cei       | cele     |
 
-| Relative superlative type | English          | Romanian                |
-|---------------------------|------------------|-------------------------|
-| of superiority            | most pronounced  | cel mai pronunțat       |
-| of inferiority            | least pronounced | cel mai puțin pronunțat |
+| Relative superlative type | English          | Romanian (masc. sg.)      |
+|---------------------------|------------------|---------------------------|
+| of superiority            | most pronounced  | *cel* mai pronunțat       |
+| of inferiority            | least pronounced | *cel* mai puțin pronunțat |
 
 Absolute superlative is straightforward; it is constructed by
 prepending *foarte* (very).
