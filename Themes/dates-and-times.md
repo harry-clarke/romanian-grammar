@@ -8,6 +8,18 @@
 |Calendar|Calendar|
 |Now|Acum|
 
+### Units of time
+|English|Română|
+|-|-|
+|Second|Secundă
+|Minute|Minut
+|Hour|Oră
+|Day|Zi
+|Week|Săptămână
+|Month|Lună
+|Season|Anotimp|
+|Year|An|
+
 ### Days
 |English|Română|
 |-|-|
