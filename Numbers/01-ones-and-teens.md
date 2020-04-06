@@ -1,4 +1,4 @@
-### Numerals up to ten
+## Ones and Teens
 
 The parts of speech that refer to numbers directly are called
 numerals.
@@ -37,53 +37,6 @@ small exceptions.
 | seventeen | **șapte**sprezece |
 | eighteen  | **opt**sprezece   |
 | nineteen  | **nouă**sprezece  |
-
-### Tens
-
-Numerals of tens are formed by adding **zeci** (tens) to
-the numbers equivalent to their first digit.
-
-| English | Romanian      |
-|---------|---------------|
-| twenty  | **două**zeci  |
-| thirty  | **trei**zeci  |
-| forty   | **patru**zeci |
-| fifty   | **cinci**zeci |
-| sixty   | **șai**zeci   |
-| seventy | **șapte**zeci |
-| eighty  | **opt**zeci   |
-| ninety  | **nouă**zeci  |
-
-### In-between tens
-
-To form numerals that are between tens, you need to start
-with the lower boundary (23's lower boundary is 20) and
-add *și* (and) followed by the last digit.
-
-* douăzecișitrei (twenty-three) - douăzeci + și + trei
-* patruzecișișase (forty-six) - patruzeci + și + șase
-
-### Larger numerals
-
-Apart from the above, all other numerals will be composed
-from separate words which are *not* hyphenated. To form
-them, you need to remember a few multiples and their plural
-forms.
-
-| English  | Romanian | Plural   |
-|----------|----------|----------|
-| hundred  | sută     | sute     |
-| thousand | mie      | mii      |
-| million  | milion   | milioane |
-| billion  | miliard  | miliarde |
-
-Here are a few examples. It's also common in Romanian to
-use the prepositon *de* between multiples (apar from *sută*)
-in order to form larger numerals but it is not necessary.
-
-* șaizecișitrei (de) milioane două sute optzecișiuna (de)
-mii trei sute paisprezece (63,281,314)
-* un milion șapte (1,000,007)
 
 ### 1, 2 and 12
 
