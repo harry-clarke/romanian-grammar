@@ -8,12 +8,12 @@
 |March|Martie|
 |April|Aprilie|
 |May|Mai|
-|June|
-|July|
-|August|
-|September|
-|October|
-|November|
+|June|Iunie
+|July|Iulie
+|August|August
+|September|Septembrie|
+|October|Octombrie
+|November|Noiembrie
 |December|Decembrie|
 
 ### Seasons of the year
@@ -21,5 +21,5 @@
 |-|-|
 |Spring|Primăvară|
 |Summer|Vară|
-|Autumn|Toamnă
+|Autumn|Toamnă|
 |Winter|Iarnă|
