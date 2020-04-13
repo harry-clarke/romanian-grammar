@@ -1,5 +1,8 @@
 ## Tens and In-between
 
+All numbers after 19 are followed by *de* (of):
+* *douăzeci de căței*: Twenty (of) puppies
+
 ### Tens
 
 Numerals of tens are formed by adding **zeci** (tens) to
