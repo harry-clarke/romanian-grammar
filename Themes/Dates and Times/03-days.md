@@ -9,6 +9,8 @@
 |The day after Tomorrow|Poimâine|
 
 ### Days of the week
+All days of the week are feminine.
+
 |English|Română|
 |-|-|
 |Monday|Luni|

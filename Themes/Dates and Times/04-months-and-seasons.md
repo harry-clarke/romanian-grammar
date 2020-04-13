@@ -1,6 +1,8 @@
 ## Months and Seasons
 
 ### Months of the year (Si. Def.)
+All months of the year are masculine.
+
 |English|Română|
 |-|-|
 |January|Ianuarie|
@@ -17,6 +19,8 @@
 |December|Decembrie|
 
 ### Seasons of the year
+All seasons of the year are feminine.
+
 |English|Română|
 |-|-|
 |Spring|Primăvară|
