@@ -1,5 +1,5 @@
 ### Units of Measurement
 
-|English|Română|
+|English|Româna|
 |-|-|
 |Meter|Metru (M)|
