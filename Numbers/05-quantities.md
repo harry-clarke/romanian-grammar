@@ -1,8 +1,10 @@
 ### Quantities
 
-|English|Română|
+|English|Româna|
 |-|-|
 |Some|Câteva (Pronoun, Adj.)|
+|Some/"ones"|Unii (M)/ Unele (F)|
+|Other|Alt (Pronoun)
 |A little/few|Puțin (N, Adj.)|
 |Many/a lot|Mult (N, Adj.)|
 |Quite a lot ("Enough of many")|Destul de mult|
