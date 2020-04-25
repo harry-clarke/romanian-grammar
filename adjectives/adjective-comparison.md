@@ -1,7 +1,7 @@
 ### Degrees of comparison
 
 Unlike English, Romanian has only one way of comparing adjectives,
-and it involes no irrgulars. It does, however, invole some degree
+and it involves no irregulars. It does, however, involve some degree
 of inflection just like in the case of adjectives.
 
 #### Comparative
@@ -33,3 +33,25 @@ prepending *foarte* (very).
 
 * foarte pronunțat (very pronounced)
 
+Adjective composition is the process of combining information with adjectives for the purpose of comparison.
+
+## Comparative article
+
+There are two common types of `than`/`as` in Romanian:
+* `Decât`: `Than`
+* `Ca`:
+  * `Than`. Although not considered "proper", it is still widely used in this manner
+  * `As`
+
+## Examples
+
+All examples will use the adjective `big`(`mare`).
+
+|English|English Literal|Româna|
+|-|-|-|
+|As big as|The same amount of big as|La fel de mare ca|
+|Bigger than|More big than|Mai mare ca<br>Mai mare descât|
+|Less big|More little big than|Mai puțin mare descât (M Si.)|
+|Biggest|The most big|Cel mai mare (M Si.)<br>Cea mai mare (F Si.)<br>Cei mai mare (M Pl.)<br>Cele mai mare (F Pl.)|
+|Least big|The most little big|Cel mai puțin mare (M Si.)|
+|Very big|Very big|Foarte mare|
