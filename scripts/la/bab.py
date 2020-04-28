@@ -43,8 +43,8 @@ def _parse_pos(pos: str) -> Optional[PartOfSpeech]:
 
 
 def _parse_entry(entry: HtmlElement) -> Tuple[PartOfSpeech, List[str]]:
-    pos = entry.xpath(__POS_XPATH)[0]
-    pos = _parse_pos(pos)
+    pos = entry.xpath(__POS_XPATH)
+    pos = None if len(pos) == 0 else _parse_pos(pos[0])
     words = entry.xpath(__TRANSLATION_XPATH)
     words = [word.replace('ţ', 'ț') for word in words]
     return pos, words
@@ -72,7 +72,14 @@ def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[P
 
 def get_translations(from_language: str, to_language: str, word: str) -> Dict[PartOfSpeech, List[str]]:
     to_language = to_language.lower()
-    return _parse_translation_page(_request_translation(from_language.lower(), to_language, word).content, to_language)
+    try:
+        translations = _parse_translation_page(_request_translation(from_language.lower(), to_language, word).content,
+                                               to_language)
+    except Exception as e:
+        raise Exception(e, {'from_language': from_language, 'to_language': to_language, 'word': word}).with_traceback(
+            e.__traceback__)
+
+    return translations
 
 
 def _test_1():
@@ -97,7 +104,13 @@ def _test_3():
     }
 
 
+def _test_4():
+    ts = get_translations('english', 'romanian', 'every')
+    print(ts)
+
+
 if __name__ == '__main__':
     _test_1()
     _test_2()
     _test_3()
+    _test_4()
