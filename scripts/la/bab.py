@@ -21,7 +21,12 @@ PART_OF_SPEECH: Dict[str, PartOfSpeech] = {
     'verb': PartOfSpeech.VERB,
     'pron': PartOfSpeech.PRONOUN,
     'prp': PartOfSpeech.ADPOSITION,
-    'conj': PartOfSpeech.CONJUNCTION
+    'conj': PartOfSpeech.CONJUNCTION,
+    'vb': PartOfSpeech.VERB,
+    'adj': PartOfSpeech.ADJECTIVE,
+    'interj': PartOfSpeech.INTERJECTION,
+    'adv': PartOfSpeech.ADVERB,
+    'abbreviation': None
 }
 
 
@@ -30,7 +35,7 @@ def _request_translation(from_language: str, to_language: str, word: str) -> req
 
 
 def _parse_pos(pos: str) -> Optional[PartOfSpeech]:
-    pos = pos.strip('{}.')
+    pos = pos.strip('{[]}.')
     if pos in PART_OF_SPEECH:
         return PART_OF_SPEECH[pos]
     else:
