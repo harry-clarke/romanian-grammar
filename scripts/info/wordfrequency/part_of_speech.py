@@ -1,7 +1,5 @@
 from typing import Dict
 
-from bidict import bidict
-
 from scripts.part_of_speech import PartOfSpeech
 
 PART_OF_SPEECH: Dict[str, PartOfSpeech] = {
@@ -19,3 +17,7 @@ PART_OF_SPEECH: Dict[str, PartOfSpeech] = {
     't': None,
     'j': PartOfSpeech.ADJECTIVE
 }
+"""
+Parts of Speech associated with the word frequency data sets that can be found at:
+https://www.wordfrequency.info/intro.asp
+"""
