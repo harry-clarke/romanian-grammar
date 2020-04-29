@@ -1,14 +1,17 @@
 #! python3
+import inspect
+from time import sleep
 from typing import Dict, List
 
 from sys import argv
+from pathlib import Path, PurePath
 import csv
 
-from scripts.info.academicvocabulary.part_of_speech import PART_OF_SPEECH
+from scripts.info.wordfrequency.part_of_speech import PART_OF_SPEECH
 from scripts.la import bab
 
 
-def attach_headers(header: [str], row: [str]) -> Dict[str, str]:
+def _attach_headers(header: [str], row: [str]) -> Dict[str, str]:
     assert len(header) == len(row)
     return dict(zip(header, row))
 
@@ -17,15 +20,15 @@ def read_file(file_path: str) -> List[Dict[str, str]]:
     with open(file_path, 'r', encoding='utf-8') as f:
         reader = csv.reader(f, delimiter=',')
         header = next(reader)
-        rows = [attach_headers(header, row) for row in reader]
+        rows = [_attach_headers(header, row) for row in reader]
     return rows
 
 
 def write_file(file_path: str, rows: List[Dict[str, str]]) -> None:
-    with open(file_path, 'w', encoding='utf-8') as f:
-        writer = csv.writer(f)
+    with open(file_path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f, delimiter=',')
         writer.writerow(rows[0].keys())
-        writer.writerows(row.values() for row in rows)
+        writer.writerows(list(row.values()) for row in rows)
 
 
 def add_translation(row: Dict[str, str], to_language: str) -> None:
@@ -35,13 +38,39 @@ def add_translation(row: Dict[str, str], to_language: str) -> None:
     row[f'lemma_{to_language}'] = translation
 
 
+def translate_file(file_path: str, language: str):
+    rows = read_file(file_path)
+    failed_rows = []
+    for i, row in enumerate(rows):
+        try:
+            add_translation(row, 'romanian')
+        except Exception as e:
+            failed_rows.append(row)
+            print(f'Row failure for row:\n{row}\n\n{e}')
+        print(f'{100 * i / len(rows):.2f}%')
+        sleep(1.0)
+    cur_path = PurePath(file_path)
+    cur_name = cur_path.stem
+
+    if len(failed_rows) != 0:
+        fail_name = f'{cur_name}_{language}_errors.csv'
+        fail_path = str(cur_path.with_name(fail_name))
+        write_file(fail_path, failed_rows)
+
+    write_name = f'{cur_name}_{language}.csv'
+    write_path = str(cur_path.with_name(write_name))
+    write_file(write_path, rows)
+
+
 def main():
+    if len(argv) == 1:
+        raise ValueError('Please specify the csv to pull words from.\nWord frequency data sets that can be found at: '
+                         'https://www.wordfrequency.info/intro.asp')
+    if len(argv) == 2:
+        raise ValueError('Please specify the language you wish to translate.')
     file_path = argv[1]
-    rows = read_file(file_path)[:10]
-    for row in rows:
-        add_translation(row, 'romanian')
-    write_file(f'{file_path}.poof', rows)
-    print(rows[0])
+    language = argv[2].lower()
+    translate_file(file_path, language)
 
 
 if __name__ == '__main__':
