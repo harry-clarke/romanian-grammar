@@ -1,34 +1,12 @@
 #! python3
-import inspect
 from time import sleep
-from typing import Dict, List
+from typing import Dict
 
 from sys import argv
-from pathlib import Path, PurePath
-import csv
+from pathlib import PurePath
 
-from scripts.info.wordfrequency.part_of_speech import PART_OF_SPEECH
+from scripts.info.wordfrequency.part_of_speech import PART_OF_SPEECH, read_file, write_file
 from scripts.la import bab
-
-
-def _attach_headers(header: [str], row: [str]) -> Dict[str, str]:
-    assert len(header) == len(row)
-    return dict(zip(header, row))
-
-
-def read_file(file_path: str) -> List[Dict[str, str]]:
-    with open(file_path, 'r', encoding='utf-8') as f:
-        reader = csv.reader(f, delimiter=',')
-        header = next(reader)
-        rows = [_attach_headers(header, row) for row in reader]
-    return rows
-
-
-def write_file(file_path: str, rows: List[Dict[str, str]]) -> None:
-    with open(file_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f, delimiter=',')
-        writer.writerow(rows[0].keys())
-        writer.writerows(list(row.values()) for row in rows)
 
 
 def add_translation(row: Dict[str, str], to_language: str) -> None:
