@@ -1,23 +1,32 @@
 #! python3
 from time import sleep
-from typing import Dict
 
 from sys import argv
 from pathlib import PurePath
+from typing import Callable
 
-from scripts.info.wordfrequency.part_of_speech import PART_OF_SPEECH, read_file, write_file
 from scripts.la import bab
+from scripts.part_of_speech import Row
+from scripts.uk.ac.lancs.ucrel.bncfreq import read_file, write_file
 
 
-def add_translation(row: Dict[str, str], to_language: str) -> None:
-    pos = PART_OF_SPEECH[row['PoS']]
+def add_translation(row: Row, to_language: str) -> None:
+    pos = row['PoS']
     translations = bab.get_translations('english', to_language, row['lemma'])
     translation = '' if pos not in translations else translations[pos][0]
     row[f'lemma_{to_language}'] = translation
 
 
-def translate_file(file_path: str, language: str):
+def _rename_path(path: PurePath, f: Callable[[str], str]) -> str:
+    return str(path.with_name(f(path.name)))
+
+
+def translate_file(file_path: str, language: str, dry_run: bool):
+    if dry_run:
+        print('Dry run, no files being written')
+
     rows = read_file(file_path)
+    print(f'{len(rows)} rows')
     failed_rows = []
     for i, row in enumerate(rows):
         try:
@@ -27,16 +36,16 @@ def translate_file(file_path: str, language: str):
             print(f'Row failure for row:\n{row}\n\n{e}')
         print(f'{100 * i / len(rows):.2f}%')
         sleep(1.0)
-    cur_path = PurePath(file_path)
-    cur_name = cur_path.stem
 
+    if dry_run:
+        return
+
+    cur_path = PurePath(file_path)
     if len(failed_rows) != 0:
-        fail_name = f'{cur_name}_{language}_errors.csv'
-        fail_path = str(cur_path.with_name(fail_name))
+        fail_path = _rename_path(cur_path, lambda cur_name: f'{cur_name}_{language}_errors.csv')
         write_file(fail_path, failed_rows)
 
-    write_name = f'{cur_name}_{language}.csv'
-    write_path = str(cur_path.with_name(write_name))
+    write_path = _rename_path(lambda cur_name: f'{cur_name}_{language}.csv')
     write_file(write_path, rows)
 
 
@@ -48,7 +57,8 @@ def main():
         raise ValueError('Please specify the language you wish to translate.')
     file_path = argv[1]
     language = argv[2].lower()
-    translate_file(file_path, language)
+    dry_run = len(argv) >= 4 and argv[3] == '--dry-run'
+    translate_file(file_path, language, dry_run)
 
 
 if __name__ == '__main__':

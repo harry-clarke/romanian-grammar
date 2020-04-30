@@ -1,4 +1,5 @@
 from enum import Enum, auto
+from typing import Dict, Union
 
 
 class PartOfSpeech(Enum):
@@ -19,3 +20,6 @@ class PartOfSpeech(Enum):
     PRONOUN = auto()
     CONTRACTION = auto()
     CARDINAL = auto()
+
+
+Row = Dict[str, Union[str, PartOfSpeech]]
