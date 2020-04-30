@@ -1,6 +1,5 @@
 from typing import List, Dict, Optional, Tuple
 
-import bidict as bidict
 import requests
 from lxml import html
 from lxml.html import HtmlElement
@@ -53,6 +52,8 @@ def _parse_entry(entry: HtmlElement) -> Tuple[PartOfSpeech, List[str]]:
 def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[PartOfSpeech, List[str]]:
     tree: HtmlElement = html.fromstring(translation_page)
     containers: List[HtmlElement] = tree.xpath(__RESULTS_CONTAINER_XPATH)
+    if len(containers) == 0:
+        return {}
     assert len(containers) == 1
     container = containers[0]
     is_language = False
@@ -63,7 +64,8 @@ def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[P
             is_language = language_to in language
             continue
         if is_language and child.attrib['class'] == __ENTRY_CLASS \
-                and len(child.xpath('div[@class="toc-links-header"]')) == 0:
+                and len(child.xpath('div[@class="toc-links-header"]')) == 0 \
+                and len(child.xpath('div[@class="quick-result-overview bab-full-width"]')) == 0:
             entries.append(child)
 
     translations = dict([_parse_entry(entry) for entry in entries])
@@ -106,7 +108,13 @@ def _test_3():
 
 def _test_4():
     ts = get_translations('english', 'romanian', 'every')
-    print(ts)
+    assert ts == {PartOfSpeech.PRONOUN: ['fiecare', 'tot', 'toți', 'fiecare (implicând totalitatea)'],
+                  None: ['fiecare']}
+
+
+def _test_5():
+    ts = get_translations('english', 'romanian', '1st')
+    assert ts == {}
 
 
 if __name__ == '__main__':
@@ -114,3 +122,4 @@ if __name__ == '__main__':
     _test_2()
     _test_3()
     _test_4()
+    _test_5()
