@@ -1,6 +1,6 @@
 # Professions: Other
 
-|English|Româna (M)|Româna (F)|
+|English|Română (M)|Română (F)|
 |-|-|-|
 |Pirate|Pirat||
 |Soldier|Soldat||

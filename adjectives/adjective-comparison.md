@@ -10,7 +10,7 @@ of inflection just like in the case of adjectives.
 
 Comparison again
 
-|English|English Literal|Româna|
+|English|English Literal|Română|
 |-|-|-|
 |As big as|The same amount of big as|_La fel de_ mare ca|
 |Bigger than|More big than|_Mai_ mare ca<br>_Mai_ mare descât|
@@ -34,7 +34,7 @@ Note that the use of `cel`/`the` replaces the need for the definite article in t
 
 #### Relative superlative
 
-|English|English Literal|Româna|
+|English|English Literal|Română|
 |-|-|-|
 |Biggest|The most big|Cel mai mare (M Si.)<br>Cea mai mare (F Si.)<br>Cei mai mare (M Pl.)<br>Cele mai mare (F Pl.)|
 |Least big|The most little big|Cel mai puțin mare (M Si.)|
@@ -64,7 +64,7 @@ There are two common types of `than`/`as` in Romanian:
 
 Combined together, these form:
 
-|English|English Literal|Româna|
+|English|English Literal|Română|
 |-|-|-|
 |As big as|The same amount of big as|La fel de mare ca|
 |Bigger than|More big than|Mai mare ca<br>Mai mare descât|

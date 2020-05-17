@@ -1,6 +1,6 @@
 ### Quantities
 
-|English|Româna|
+|English|Română|
 |-|-|
 |Some|Câteva (Pronoun, Adj.)|
 |Some/"ones"|Unii (M)/ Unele (F)|

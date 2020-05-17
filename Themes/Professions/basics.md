@@ -1,5 +1,5 @@
 # Professions Basics
 
-|English|Româna (M)|Româna (F)|
+|English|Română (M)|Română (F)|
 |-|-|-|
 |Employee|Angajat||

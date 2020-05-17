@@ -1,6 +1,6 @@
 ### Professions: Food and Drink
 
-|English|Româna (M)| Româna (F)|
+|English|Română (M)| Română (F)|
 |-|-|-|
 |Butcher|Măcelar||
 |Baker|Brutar|Brutăreasă|

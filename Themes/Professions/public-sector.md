@@ -1,6 +1,6 @@
 # Professions: Public Sector
 
-|English|Româna (M)|Româna (F)|
+|English|Română (M)|Română (F)|
 |-|-|-|
 |Police Officer|Polițist|
 |Firefighter|Pompier|

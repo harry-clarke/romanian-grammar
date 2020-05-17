@@ -1,6 +1,6 @@
 # Professions: Professional Services
 
-|English|Româna (M)|Româna (F)
+|English|Română (M)|Română (F)
 |-|-|-|
 |Mechanic|Mecanic||
 |Beautician/Cosmetician|Cosmetician||
