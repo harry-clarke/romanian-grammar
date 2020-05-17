@@ -4,7 +4,7 @@ Adjectives change their form in order to be in agreement with the noun they
 are modifying. This is called inflection, and, in the case of Romanian,
 it affects gender and number.
 
-#### Varible form
+#### Variable form
 
 Some adjectives like *greoi* (heavy), *vioi* (lively), *bălai* (blond) change
 form only in the case of gender.
