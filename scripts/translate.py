@@ -5,9 +5,14 @@ from sys import argv
 from pathlib import PurePath
 from typing import Callable
 
-from scripts.la import bab
+from scripts.parsers.csvparser import CsvParser
+from scripts.parsers.info.wordfrequency.wordfrequency import WordFrequencyParser
+from scripts.parsers.uk.ac.lancs.ucrel.bncfreq import BncFreqParser
 from scripts.part_of_speech import Row
-from scripts.uk.ac.lancs.ucrel.bncfreq import read_file, write_file
+from scripts.translators.la import bab
+from scripts.parsers.parser import Parser
+
+PARSER = CsvParser()
 
 
 def add_translation(row: Row, to_language: str) -> None:
@@ -21,11 +26,11 @@ def _rename_path(path: PurePath, f: Callable[[str], str]) -> str:
     return str(path.with_name(f(path.name)))
 
 
-def translate_file(file_path: str, language: str, dry_run: bool):
+def translate_file(file_path: str, parser: Parser, language: str, dry_run: bool):
     if dry_run:
         print('Dry run, no files being written')
 
-    rows = read_file(file_path)
+    rows = parser.read_file(file_path)
     print(f'{len(rows)} rows')
     failed_rows = []
     for i, row in enumerate(rows):
@@ -43,10 +48,10 @@ def translate_file(file_path: str, language: str, dry_run: bool):
     cur_path = PurePath(file_path)
     if len(failed_rows) != 0:
         fail_path = _rename_path(cur_path, lambda cur_name: f'{cur_name}_{language}_errors.csv')
-        write_file(fail_path, failed_rows)
+        parser.write_file(fail_path, failed_rows)
 
     write_path = _rename_path(lambda cur_name: f'{cur_name}_{language}.csv')
-    write_file(write_path, rows)
+    parser.write_file(write_path, rows)
 
 
 def main():
@@ -58,7 +63,7 @@ def main():
     file_path = argv[1]
     language = argv[2].lower()
     dry_run = len(argv) >= 4 and argv[3] == '--dry-run'
-    translate_file(file_path, language, dry_run)
+    translate_file(file_path, PARSER, language, dry_run)
 
 
 if __name__ == '__main__':
