@@ -5,6 +5,7 @@ from lxml import html
 from lxml.html import HtmlElement
 
 from scripts.part_of_speech import PartOfSpeech
+from scripts.translators.translator import Translator, Translations
 
 SITE_URL = 'https://en.bab.la/'
 __DICTIONARY_PATH = 'dictionary/'
@@ -72,25 +73,32 @@ def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[P
     return translations
 
 
-def get_translations(from_language: str, to_language: str, word: str) -> Dict[PartOfSpeech, List[str]]:
-    to_language = to_language.lower()
-    try:
-        translations = _parse_translation_page(_request_translation(from_language.lower(), to_language, word).content,
-                                               to_language)
-    except Exception as e:
-        raise Exception(e, {'from_language': from_language, 'to_language': to_language, 'word': word}).with_traceback(
-            e.__traceback__)
+class BabTranslator(Translator):
 
-    return translations
+    def get_translations(self, from_language: str, to_language: str, word: str) -> Translations:
+        to_language = to_language.lower()
+        try:
+            translations = _parse_translation_page(
+                _request_translation(from_language.lower(), to_language, word).content,
+                to_language)
+        except Exception as e:
+            raise Exception(e,
+                            {'from_language': from_language, 'to_language': to_language, 'word': word}).with_traceback(
+                e.__traceback__)
+
+        return translations
+
+
+TEST_TRANSLATOR = BabTranslator()
 
 
 def _test_1():
-    ts = get_translations('english', 'romanian', 'knife')
+    ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'knife')
     assert ts == {PartOfSpeech.NOUN: ['cuțit', 'tacâm']}
 
 
 def _test_2():
-    ts = get_translations('english', 'romanian', 'who')
+    ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'who')
     assert ts == {
         PartOfSpeech.PRONOUN: ['cine'],
         PartOfSpeech.ADPOSITION: ['de (care)']
@@ -98,7 +106,7 @@ def _test_2():
 
 
 def _test_3():
-    ts = get_translations('english', 'romanian', 'of')
+    ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'of')
     assert ts == {
         PartOfSpeech.ADPOSITION: ['a', 'dintre', 'despre', 'dintru (locul)', 'din (cu înțeles partitiv)', 'de (despre)',
                                   'de (arată originea)'],
@@ -107,13 +115,13 @@ def _test_3():
 
 
 def _test_4():
-    ts = get_translations('english', 'romanian', 'every')
+    ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'every')
     assert ts == {PartOfSpeech.PRONOUN: ['fiecare', 'tot', 'toți', 'fiecare (implicând totalitatea)'],
                   None: ['fiecare']}
 
 
 def _test_5():
-    ts = get_translations('english', 'romanian', '1st')
+    ts = TEST_TRANSLATOR.get_translations('english', 'romanian', '1st')
     assert ts == {}
 
 

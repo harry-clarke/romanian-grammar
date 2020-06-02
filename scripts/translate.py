@@ -11,13 +11,17 @@ from scripts.parsers.uk.ac.lancs.ucrel.bncfreq import BncFreqParser
 from scripts.part_of_speech import Row
 from scripts.translators.la import bab
 from scripts.parsers.parser import Parser
+from scripts.translators.la.bab import BabTranslator
+from scripts.translators.translator import Translator
 
 PARSER = CsvParser()
+
+TRANSLATOR: Translator = BabTranslator()
 
 
 def add_translation(row: Row, to_language: str) -> None:
     pos = row['PoS']
-    translations = bab.get_translations('english', to_language, row['lemma'])
+    translations = TRANSLATOR.get_translations('english', to_language, row['lemma'])
     translation = '' if pos not in translations else translations[pos][0]
     row[f'lemma_{to_language}'] = translation
 
