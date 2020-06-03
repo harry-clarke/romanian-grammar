@@ -5,8 +5,9 @@
 |Pirate|Pirat||
 |Soldier|Soldat||
 |Captain|Căpitan||
-|Steward|Steward|Stewardesă|
 |Pilot|Pilot||
+|Steward|Steward|Stewardesă|
+|Director|Director|Directoreasă
 |Tailor|Croitor|Croitoreasă|
 |Guardian|Gardian|
 |Priest|Preot||
