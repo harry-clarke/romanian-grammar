@@ -15,6 +15,7 @@ __HEADER_CLASS = 'quick-results-header'
 __ENTRY_CLASS = 'quick-result-entry'
 __TRANSLATION_XPATH = 'div//ul[@class="sense-group-results"]/li/a/text()'
 __POS_XPATH = 'div[1]/span/text()'
+__START_TERM_XPATH = 'div[1]/a[@class="babQuickResult"]/text()'
 
 PART_OF_SPEECH: Dict[str, PartOfSpeech] = {
     'noun': PartOfSpeech.NOUN,
@@ -42,15 +43,26 @@ def _parse_pos(pos: str) -> Optional[PartOfSpeech]:
         raise TypeError(f'Unknown PoS for bab.la: "{pos}"')
 
 
-def _parse_entry(entry: HtmlElement) -> Tuple[PartOfSpeech, List[str]]:
+def _parse_entry(entry: HtmlElement) -> Tuple[PartOfSpeech, str, List[str]]:
+    """
+
+    :param entry: A div.quick-result-option HTML element
+    :return: A tuple of:
+    * PoS for this element and a list
+    * The word/term in English associated with this translation
+    * A list of possible translations for the given word/term
+    """
     pos = entry.xpath(__POS_XPATH)
     pos = None if len(pos) == 0 else _parse_pos(pos[0])
+
+    start_term = entry.xpath(__START_TERM_XPATH)[0]
+
     words = entry.xpath(__TRANSLATION_XPATH)
     words = [word.replace('ţ', 'ț') for word in words]
-    return pos, words
+    return pos, start_term, words
 
 
-def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[PartOfSpeech, List[str]]:
+def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[PartOfSpeech, Dict[str, List[str]]]:
     tree: HtmlElement = html.fromstring(translation_page)
     containers: List[HtmlElement] = tree.xpath(__RESULTS_CONTAINER_XPATH)
     if len(containers) == 0:
@@ -69,7 +81,16 @@ def _parse_translation_page(translation_page: bytes, language_to: str) -> Dict[P
                 and len(child.xpath('div[@class="quick-result-overview bab-full-width"]')) == 0:
             entries.append(child)
 
-    translations = dict([_parse_entry(entry) for entry in entries])
+    translations = dict()
+    for entry in entries:
+        pos, start_term, entry_translations = _parse_entry(entry)
+        if pos not in translations:
+            translations[pos] = dict()
+        pos_translations = translations[pos]
+        if start_term not in pos_translations:
+            pos_translations[start_term] = list()
+        pos_translations[start_term] += entry_translations
+
     return translations
 
 
@@ -94,30 +115,27 @@ TEST_TRANSLATOR = BabTranslator()
 
 def _test_1():
     ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'knife')
-    assert ts == {PartOfSpeech.NOUN: ['cuțit', 'tacâm']}
+    assert ts == {PartOfSpeech.NOUN: {'knife': ['cuțit', 'tacâm']}}
 
 
 def _test_2():
     ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'who')
-    assert ts == {
-        PartOfSpeech.PRONOUN: ['cine'],
-        PartOfSpeech.ADPOSITION: ['de (care)']
-    }
+    assert ts[PartOfSpeech.PRONOUN]['who'][0] == 'care'
+    assert ts[PartOfSpeech.ADPOSITION]['who'] == ['de (care)']
 
 
 def _test_3():
     ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'of')
-    assert ts == {
-        PartOfSpeech.ADPOSITION: ['a', 'dintre', 'despre', 'dintru (locul)', 'din (cu înțeles partitiv)', 'de (despre)',
-                                  'de (arată originea)'],
-        PartOfSpeech.CONJUNCTION: ['de']
-    }
+    assert ts[PartOfSpeech.ADPOSITION] == {
+        'of': ['a', 'dintre', 'despre', 'dintru (locul)', 'din (cu înțeles partitiv)', 'de (despre)',
+               'de (arată originea)']}
+    assert ts[PartOfSpeech.CONJUNCTION] == {'of': ['de']}
 
 
 def _test_4():
     ts = TEST_TRANSLATOR.get_translations('english', 'romanian', 'every')
-    assert ts == {PartOfSpeech.PRONOUN: ['fiecare', 'tot', 'toți', 'fiecare (implicând totalitatea)'],
-                  None: ['fiecare']}
+    assert ts == {PartOfSpeech.PRONOUN: {'every': ['fiecare', 'tot', 'toți', 'fiecare (implicând totalitatea)']},
+                  None: {'every': ['fiecare']}}
 
 
 def _test_5():

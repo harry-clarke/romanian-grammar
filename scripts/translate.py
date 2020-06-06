@@ -1,33 +1,35 @@
 #! python3
-from time import sleep
-
-from sys import argv
 from pathlib import PurePath
+from sys import argv
+from time import sleep
 from typing import Callable
 
 from scripts.parsers.csvparser import CsvParser
-from scripts.parsers.info.wordfrequency.wordfrequency import WordFrequencyParser
+from scripts.parsers.parser import Parser
 from scripts.parsers.uk.ac.lancs.ucrel.bncfreq import BncFreqParser
 from scripts.part_of_speech import Row
-from scripts.translators.la import bab
-from scripts.parsers.parser import Parser
 from scripts.translators.la.bab import BabTranslator
 from scripts.translators.translator import Translator
 
-PARSER = CsvParser()
+PARSER = BncFreqParser()
 
 TRANSLATOR: Translator = BabTranslator()
 
 
-def add_translation(row: Row, to_language: str) -> None:
+def add_translation(row: Row, to_language: str) -> int:
     pos = row['PoS']
-    translations = TRANSLATOR.get_translations('english', to_language, row['lemma'])
-    translation = '' if pos not in translations else translations[pos][0]
-    row[f'lemma_{to_language}'] = translation
+    pos_translations = TRANSLATOR.get_translations('english', to_language, row['lemma'])
+    if pos not in pos_translations:
+        return 0
+    translations = pos_translations[pos]
+    for i, from_translation in enumerate(translations.keys()):
+        row[f'lemmas_{to_language}_{i}_from'] = from_translation
+        row[f'lemmas_{to_language}_{i}_to'] = ', '.join(translations[from_translation])
+    return len(translations.keys())
 
 
 def _rename_path(path: PurePath, f: Callable[[str], str]) -> str:
-    return str(path.with_name(f(path.name)))
+    return str(path.with_name(f(path.stem)))
 
 
 def translate_file(file_path: str, parser: Parser, language: str, dry_run: bool):
@@ -37,14 +39,23 @@ def translate_file(file_path: str, parser: Parser, language: str, dry_run: bool)
     rows = parser.read_file(file_path)
     print(f'{len(rows)} rows')
     failed_rows = []
-    for i, row in enumerate(rows):
+    max_columns = 0
+    for c, row in enumerate(rows):
         try:
-            add_translation(row, 'romanian')
+            columns = add_translation(row, language)
+            if columns > max_columns:
+                max_columns = columns
         except Exception as e:
             failed_rows.append(row)
             print(f'Row failure for row:\n{row}\n\n{e}')
-        print(f'{100 * i / len(rows):.2f}%')
-        sleep(1.0)
+        print(f'{100 * c / len(rows):.2f}%')
+        sleep(0.2)
+
+    header = rows[0]
+    for c in range(max_columns):
+        if f'lemmas_{language}_{c}_from' not in header:
+            header[f'lemmas_{language}_{c}_from'] = ''
+            header[f'lemmas_{language}_{c}_to'] = ''
 
     if dry_run:
         return
@@ -54,7 +65,7 @@ def translate_file(file_path: str, parser: Parser, language: str, dry_run: bool)
         fail_path = _rename_path(cur_path, lambda cur_name: f'{cur_name}_{language}_errors.csv')
         parser.write_file(fail_path, failed_rows)
 
-    write_path = _rename_path(lambda cur_name: f'{cur_name}_{language}.csv')
+    write_path = _rename_path(cur_path, lambda cur_name: f'{cur_name}_{language}.csv')
     parser.write_file(write_path, rows)
 
 

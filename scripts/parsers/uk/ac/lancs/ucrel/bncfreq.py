@@ -78,4 +78,4 @@ class BncFreqParser(CsvParser):
         return rows
 
     def write_file(self, file_path: str, rows: List[Row]) -> None:
-        super(CsvParser).write_file(file_path, rows)
+        super().write_file(file_path, rows)
