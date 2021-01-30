@@ -3,6 +3,7 @@
 |English|Română (M)|Română (F)|
 |-|-|-|
 |Pirate|Pirat||
+|Hunter|Vânător||
 |Soldier|Soldat||
 |Captain|Căpitan||
 |Pilot|Pilot||
