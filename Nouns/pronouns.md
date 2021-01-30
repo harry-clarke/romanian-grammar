@@ -12,3 +12,8 @@
 |You (Sub. Obj.)|Si.|Tu (Sub.)<br>Ta (Obj.)|
 |You (Sub. Obj.)|Pl.|Voi (Sub. Obj.)|
 |We (Sub.)<br>Us (Obj.)|Pl.|Noi (Sub. Obj.)|
+
+
+## Informal/shortened versions
+
+`Eu sunt` -> `Io îs` -> `Io-s`

@@ -1,4 +1,4 @@
-### Possessive pronouns
+### Possessive Nouns
 
 Like in English, Romanian distinguishes between two types of possessive
 pronouns named **relative** and **absolute**.
@@ -58,14 +58,10 @@ article in front.
 
 Possession can also be expressed by not replacing the owner with a
 possessive pronoun and using the noun's genitive-dative form which
-is similar to *'s* you would add in English to signal possession.
+is similar to the `'s` you would add in English to signal possession.
 
 * Nu găsesc portofelul **lui**. (I can't find **his** wallet.)
 * Nu găsesc portofelul **bunicului**. (I can't find **grandfather's** wallet.)
 
 In the example above, we are keeping the owner, **bunicului**,
 instead of using a pronoun-originating adjective, **lui**.
-
-*The genitive-dative form is better explained in a further lesson.
-The introduction here is only meant to give you a bigger picture
-when it comes to possession in Romanian.*
