@@ -9,7 +9,8 @@
 |Minute|Minut
 |Hour|Oră
 |Day|Zi (F)
-|Week|Săptămână
+|Week|Săptămână (F)|
+|Weekend (End of the week)|Sfârșit (N) de Săptămână (F)|
 |Month|Lună
 |Season|Anotimp (M)|
 |Year|An (M)|
