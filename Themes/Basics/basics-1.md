@@ -91,7 +91,7 @@ etc.), or simply refrain from using a pronoun.
 
 ### To be
 
-In Romanian, the subject of any setence has to be in agreement with the verb
+In Romanian, the subject of any sentence has to be in agreement with the verb
 representing the action it is performing. This agreement is called **conjugation**
 and comes with its own set of rules and exceptions. Below you will find the
 conjugation table for *a fi* (to be).

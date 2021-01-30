@@ -23,7 +23,7 @@
 |English|Română|
 |-|-|
 |Morning|Dimineață|
-|Noon|Aniază|
+|Noon|Amiază|
 |Afternoon|După-amiază
 |Evening|Seară
 |Night|Noapte

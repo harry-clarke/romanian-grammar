@@ -1,4 +1,4 @@
-### Animal names for male, female, and baby
+### Animals
 
 Romanian has specialized names for common animal types. The plural is formed from
 either the male or the female form.
@@ -20,7 +20,7 @@ example, will get the name *turmă* which is similar to the word *herd*.
 * turmă de elefanți (elephant herd)
 * turmă de vaci (cattle herd)
 
-For birds one would usually use the word *stol*.
+For birds, one would usually use the word *stol*.
 
 * stol de ciori (murder of crows)
 * stol de porumbei (flock of pigeons)

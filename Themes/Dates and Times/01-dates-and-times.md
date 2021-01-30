@@ -11,4 +11,4 @@
 ### Example phrases
 |English|Română|
 |-|-|
-|Spring is coming|Vine Primăvara|
+|Spring is coming|Vine primăvara|
